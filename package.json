@@ -1,0 +1,23 @@
+{
+	"name": "nate-wilkins.github.io",
+	"version": "0.0.1",
+	"description": "My github.io site!",
+	"devDependencies": {
+		"github": "*",
+		"nodegit": "*",
+
+		"grunt": "*"
+	},
+	"scripts": {
+		"test": "grunt test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Nate-Wilkins/nate-wilkins.github.io"
+	},
+	"author": "Nate Wilkins <nwilkins2012@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Nate-Wilkins/nate-wilkins.github.io/issues"
+	}
+}
