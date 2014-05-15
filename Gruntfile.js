@@ -1,35 +1,63 @@
-//http://mikedeboer.github.io/node-github/#repos.prototype.getFromUser
+'use strict';
 
-var //dgeni = require('dgeni'),
-	GitHubClient = require("github"),
-	nodegit = require("nodegit");
+var fs = require('fs'),
+	path = require('path');
 
-// Shorthand
-var clone = nodegit.Repo.clone;
-
-var client = new GitHubClient({
-	version: "3.0.0"
-});
+var loadGruntTasks = require('load-grunt-tasks'),
+	exec = require('exec'),
+	npm = require('npm');
 
 module.exports = function (grunt) {
-	grunt.initConfig({
+	var config = {
+		pkg: grunt.file.readJSON('package.json'),
 
-	});
+		gitclone: {
+			docs: {
+				options: {
+					username: 'nate-wilkins',
+					forked: false,
+					clone: 'all',
+					subset: [
+						"angular-lint",
+						"grunt-wildamd"
+					]
+				},
+				dest: "./repositories"
+			}
+		},
 
-	grunt.registerTask('gitclone', "", function () {
-		var done = this.async();
+		repodocs: {
+			docs: {
+				options: {
+					generators: [
+						{
+							file: "Gruntfile.js",
+							process: function (fullPath, files, callback) {
+								var dir = path.dirname(fullPath);
+								if (dir.indexOf("node_modules") > -1) { callback(); return; }
 
-		client.repos.getFromUser({
-			user: 'nate-wilkins'
-		}, function (err, res) {
-			if (err) { done(err); return err; }
-			console.log(JSON.stringify(res));
+								grunt.log.writeln(fullPath);
+								npm.load(grunt.file.readJSON(path.join(dir, "package.json")), function (err) {
+									if (err) { callback(err); return; }
+									npm.commands.install(dir, [], callback);
+								});
+								// npm.on("log", grunt.log.writeln);
+							}
+						}
+					]
+				},
+				src: "./repositories"
+			}
+		}
+	};
 
-			clone("https://github.com/nodegit/nodegit", "dest", null, done);
+	grunt.initConfig(config);
 
-			done();
-		});
-	});
+	loadGruntTasks(grunt);
+	grunt.loadTasks("./tasks");
 
-	grunt.registerTask('default', ['gitclone']);
+	grunt.registerTask('default', [
+		'gitclone',
+		'repodocs'
+	]);
 };

@@ -3,9 +3,14 @@
 	"version": "0.0.1",
 	"description": "My github.io site!",
 	"devDependencies": {
-		"github": "*",
-		"nodegit": "*",
+		"npm": "*",
 
+		"async": "*",
+		"exec": "*",
+		"wrench": "*",
+		"github": "*",
+
+		"load-grunt-tasks": "*",
 		"grunt": "*"
 	},
 	"scripts": {
