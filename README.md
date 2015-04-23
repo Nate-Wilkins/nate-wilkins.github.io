@@ -1,4 +1,3 @@
-nate-wilkins.github.io
-======================
+# [nate-wilkins.github.io](http://nate-wilkins.github.io/)
 
-Github pages
+My github.io site!

@@ -1,0 +1,22 @@
+{
+  "name": "nate-wilkins.github.io",
+  "version": "0.0.1",
+  "authors": [
+	"Nate-Wilkins <nwilkins2012@gmail.com>"
+  ],
+  "description": "My github.io site!",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "http://nate-wilkins.github.io/",
+  "ignore": [
+	"**/.*",
+	"node_modules",
+	"bower_components",
+	"test",
+	"tests"
+  ],
+  "dependencies": {
+	"normalize.css": "~3.0.3",
+	"svg4everybody": "~1.0.0"
+  }
+}

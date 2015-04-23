@@ -1,28 +1,23 @@
 {
-	"name": "nate-wilkins.github.io",
-	"version": "0.0.1",
-	"description": "My github.io site!",
-	"devDependencies": {
-		"npm": "*",
-
-		"async": "*",
-		"exec": "*",
-		"wrench": "*",
-		"github": "*",
-
-		"load-grunt-tasks": "*",
-		"grunt": "*"
-	},
-	"scripts": {
-		"test": "grunt test"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Nate-Wilkins/nate-wilkins.github.io"
-	},
-	"author": "Nate Wilkins <nwilkins2012@gmail.com>",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/Nate-Wilkins/nate-wilkins.github.io/issues"
-	}
+  "name": "nate-wilkins.github.io",
+  "version": "0.0.1",
+  "description": "My github.io site!",
+  "devDependencies": {
+	"gulp": "^3.8.11",
+	"gulp-connect": "^2.2.0",
+	"gulp-plumber": "^1.0.0",
+	"gulp-svg-sprite": "^1.1.2"
+  },
+  "scripts": {
+	"test": ""
+  },
+  "repository": {
+	"type": "git",
+	"url": "https://github.com/Nate-Wilkins/nate-wilkins.github.io"
+  },
+  "author": "Nate Wilkins <nwilkins2012@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+	"url": "https://github.com/Nate-Wilkins/nate-wilkins.github.io/issues"
+  }
 }
